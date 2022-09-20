@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.student.app.entity.Student;
 
 @RestController
+@RequestMapping("/")
 public class StudentServiceController {
 	
 	private static Map<String, List<Student>> schoolDB = new HashMap<String, List<Student>>();
@@ -28,7 +29,7 @@ public class StudentServiceController {
 		schoolDB.put("School1", list);
 	}
 	
-	@RequestMapping(value = "/getStudentDetailsForSchool/{schoolname}", method = RequestMethod.GET)
+	@RequestMapping(value = "getstudentdetailsforschool/{schoolname}", method = RequestMethod.GET)
 	public List<Student> getStudents(@PathVariable String schoolname) {
 		
 		System.out.println("Getting student details for " +schoolname);
